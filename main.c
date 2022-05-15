@@ -16,13 +16,7 @@
 
 static const char *s_listening_address = "http://0.0.0.0:80";
 
-static void cb(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
-  if (ev == MG_EV_HTTP_MSG) {
-    mg_http_reply(c, 200, "", "hello, %s!\n", "world");
-  }
-  (void) fn_data;
-  (void) ev_data;
-}
+void device_dashboard_fn(struct mg_connection *, int, void *, void *);
 
 Void mgTask(UArg arg0, UArg arg1)
 {
@@ -32,7 +26,7 @@ Void mgTask(UArg arg0, UArg arg1)
     MG_INFO(("Mongoose version : v%s", MG_VERSION));
     MG_INFO(("Listening on     : %s", s_listening_address));
 
-    if (mg_http_listen(&mgr, s_listening_address, cb, &mgr) == NULL) {
+    if (mg_http_listen(&mgr, s_listening_address, device_dashboard_fn, &mgr) == NULL) {
       MG_ERROR(("Cannot listen on %s", s_listening_address));
       return;
     }
