@@ -46,7 +46,7 @@
 									<listOptionValue builtIn="false" value="${COM_TI_RTSC_TIRTOSTIVAC_SYMBOLS}"/>
 									<listOptionValue builtIn="false" value="MG_ENABLE_FILE=0"/>
 									<listOptionValue builtIn="false" value="MG_ENABLE_PACKED_FS=1"/>
-									<listOptionValue builtIn="false" value="MG_ARCH=12"/>
+									<listOptionValue builtIn="false" value="MG_ARCH=MG_ARCH_TIRTOS"/>
 									<listOptionValue builtIn="false" value="ccs=&quot;ccs&quot;"/>
 									<listOptionValue builtIn="false" value="PART_TM4C1294NCPDT"/>
 									<listOptionValue builtIn="false" value="ccs"/>
@@ -166,7 +166,7 @@
 									<listOptionValue builtIn="false" value="${COM_TI_RTSC_TIRTOSTIVAC_SYMBOLS}"/>
 									<listOptionValue builtIn="false" value="MG_ENABLE_FILE=0"/>
 									<listOptionValue builtIn="false" value="MG_ENABLE_PACKED_FS=1"/>
-									<listOptionValue builtIn="false" value="MG_ARCH=12"/>
+									<listOptionValue builtIn="false" value="MG_ARCH=MG_ARCH_TIRTOS"/>
 									<listOptionValue builtIn="false" value="ccs=&quot;ccs&quot;"/>
 									<listOptionValue builtIn="false" value="PART_TM4C1294NCPDT"/>
 									<listOptionValue builtIn="false" value="ccs"/>
