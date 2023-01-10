@@ -68,7 +68,7 @@ static void send_notification(struct mg_mgr *mgr, const char *name,
                               const char *data) {
   struct mg_connection *c;
   for (c = mgr->conns; c != NULL; c = c->next) {
-    if (c->label[0] == 'W')
+    if (c->data[0] == 'W')
       mg_http_printf_chunk(c, "{\"name\": \"%s\", \"data\": \"%s\"}", name,
                            data == NULL ? "" : data);
   }
@@ -106,7 +106,7 @@ void device_dashboard_fn(struct mg_connection *c, int ev, void *ev_data,
       }
       mg_printf(c, "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
     } else if (mg_http_match_uri(hm, "/api/watch")) {
-      c->label[0] = 'W';  // Mark ourselves as a event listener
+      c->data[0] = 'W';  // Mark ourselves as a event listener
       mg_printf(c, "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
     } else if (mg_http_match_uri(hm, "/api/login")) {
       mg_printf(c, "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
