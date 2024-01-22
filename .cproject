@@ -44,7 +44,7 @@
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.GCC.1541596647" name="Enable support for GCC extensions (DEPRECATED) (--gcc)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.GCC" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.DEFINE.243193733" name="Pre-define NAME (--define, -D)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.DEFINE" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="${COM_TI_RTSC_TIRTOSTIVAC_SYMBOLS}"/>
-									<listOptionValue builtIn="false" value="MG_ENABLE_FILE=0"/>
+									<listOptionValue builtIn="false" value="MG_ENABLE_POSIX_FS=0"/>
 									<listOptionValue builtIn="false" value="MG_ENABLE_PACKED_FS=1"/>
 									<listOptionValue builtIn="false" value="MG_ARCH=MG_ARCH_TIRTOS"/>
 									<listOptionValue builtIn="false" value="ccs=&quot;ccs&quot;"/>
@@ -164,7 +164,7 @@
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.GCC.1898835242" name="Enable support for GCC extensions (DEPRECATED) (--gcc)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.GCC" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.DEFINE.1911006668" name="Pre-define NAME (--define, -D)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.DEFINE" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="${COM_TI_RTSC_TIRTOSTIVAC_SYMBOLS}"/>
-									<listOptionValue builtIn="false" value="MG_ENABLE_FILE=0"/>
+									<listOptionValue builtIn="false" value="MG_ENABLE_POSIX_FS=0"/>
 									<listOptionValue builtIn="false" value="MG_ENABLE_PACKED_FS=1"/>
 									<listOptionValue builtIn="false" value="MG_ARCH=MG_ARCH_TIRTOS"/>
 									<listOptionValue builtIn="false" value="ccs=&quot;ccs&quot;"/>
