@@ -82,15 +82,15 @@ void device_dashboard_fn(struct mg_connection *c, int ev, void *ev_data,
     struct user *u = getuser(hm);
     // MG_INFO(("%p [%.*s] auth %s", c->fd, (int) hm->uri.len, hm->uri.ptr,
     // u ? u->name : "NULL"));
-    if (u == NULL && mg_http_match_uri(hm, "/api/#")) {
+    if (u == NULL && mg_match(hm->uri, mg_str("/api/#"), NULL)) {
       // All URIs starting with /api/ must be authenticated
       mg_printf(c, "%s", "HTTP/1.1 403 Denied\r\nContent-Length: 0\r\n\r\n");
-    } else if (mg_http_match_uri(hm, "/api/config/get")) {
+    } else if (mg_match(hm->uri, mg_str("/api/config/get"), NULL)) {
       mg_printf(c, "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
       mg_http_printf_chunk(c, "{\"%s\":%d,\"%s\":\"%s\"}", "value1",
                            s_config.value1, "value2", s_config.value2);
       mg_http_printf_chunk(c, "");
-    } else if (mg_http_match_uri(hm, "/api/config/set")) {
+    } else if (mg_match(hm->uri, mg_str("/api/config/set"), NULL)) {
       // Admins only
       if (strcmp(u->name, "admin") == 0) {
         if (update_config(hm, &s_config))
@@ -99,16 +99,16 @@ void device_dashboard_fn(struct mg_connection *c, int ev, void *ev_data,
       } else {
         mg_printf(c, "%s", "HTTP/1.1 403 Denied\r\nContent-Length: 0\r\n\r\n");
       }
-    } else if (mg_http_match_uri(hm, "/api/message/send")) {
+    } else if (mg_match(hm->uri, mg_str("/api/message/send"), NULL)) {
       char buf[256];
       if (mg_http_get_var(&hm->body, "message", buf, sizeof(buf)) > 0) {
         send_notification(fn_data, "message", buf);
       }
       mg_printf(c, "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
-    } else if (mg_http_match_uri(hm, "/api/watch")) {
+    } else if (mg_match(hm->uri, mg_str("/api/watch"), NULL)) {
       c->data[0] = 'W';  // Mark ourselves as a event listener
       mg_printf(c, "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
-    } else if (mg_http_match_uri(hm, "/api/login")) {
+    } else if (mg_match(hm->uri, mg_str("/api/login"), NULL)) {
       mg_printf(c, "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
       mg_http_printf_chunk(c, "{\"user\":\"%s\",\"token\":\"%s\"}\n", u->name,
                            u->token);
